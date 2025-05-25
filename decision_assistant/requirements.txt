@@ -1,0 +1,4 @@
+
+djongo
+djangorestframework
+djangorestframework-simplejwt

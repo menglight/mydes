@@ -1,0 +1,2 @@
+# Scrapy requirements
+Scrapy>=2.5,<2.7 # Example version, adjust as needed
