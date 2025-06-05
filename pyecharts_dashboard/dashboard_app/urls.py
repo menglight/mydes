@@ -4,6 +4,7 @@ from . import views
 app_name = 'dashboard_app'  # Define app_name for namespacing
 
 urlpatterns = [
+    path('', views.login_view, name='login_root'),  # For app root
     # path('', views.index, name='index'),  # Example path
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
