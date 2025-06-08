@@ -1,0 +1,118 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header nav a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3, h4 {
+    color: #333;
+}
+
+form p {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+form input[type="submit"],
+button {
+    background: #333;
+    color: #fff;
+    border: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+form input[type="submit"]:hover,
+button:hover {
+    background: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+#model_response {
+    background-color: #e9e9e9;
+}
+
+/* Flashed messages styling */
+.flashes {
+    list-style: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.flashes li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/* Example: Default flash message style (can be more specific with categories) */
+.flashes li {
+    background-color: #e7f3fe; /* Light blue */
+    border-color: #d0eaff;
+    color: #0c5460; /* Darker blue for text */
+}
+
+/* Style for error messages if categories are used (e.g., flash('message', 'error')) */
+/* In routes, use flash('My error message', 'error') */
+/* Then in template: {% with messages = get_flashed_messages(with_categories=true) %} */
+/* And loop: {% for category, message in messages %} <li class="{{ category }}">{{ message }}</li> {% endfor %} */
+/* For now, we'll assume all flashes are general info. More specific styling can be added if categories are implemented. */
+
+/* Loading message styling in model_response div */
+#model_response.loading {
+    color: #777;
+    font-style: italic;
+}

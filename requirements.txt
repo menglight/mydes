@@ -1,0 +1,9 @@
+Flask
+python-dotenv
+Flask-SQLAlchemy
+Flask-Login
+Flask-WTF
+Werkzeug
+Flask-Migrate
+stripe
+openai

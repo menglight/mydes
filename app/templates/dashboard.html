@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ title }}</h2>
+    <p>Welcome, {{ current_user.username }}!</p>
+
+    {% if current_user.subscription_active %}
+        <p style="color: green;">Your subscription is active until {{ current_user.stripe_current_period_end.strftime('%Y-%m-%d') if current_user.stripe_current_period_end else 'N/A' }}.</p>
+        <div>
+            <h3>Interact with a Large Model</h3>
+            <label for="model_selection">Choose a model:</label>
+            <select name="model_selection" id="model_selection">
+                {% if available_models %}
+                    {% for model in available_models %}
+                        <option value="{{ model.id }}">{{ model.name }}</option>
+                    {% endfor %}
+                {% else %}
+                    <option value="gpt-3.5-turbo">GPT-3.5 Turbo (Default)</option> <!-- Fallback -->
+                {% endif %}
+            </select>
+            <br><br>
+            <textarea id="user_input" rows="4" cols="50" placeholder="Enter your prompt here..."></textarea>
+            <br>
+            <button id="submit_prompt">Submit</button>
+            <br><br>
+            <h4>Model Response:</h4>
+            <div id="model_response" style="border: 1px solid #ccc; padding: 10px; min-height: 50px;">
+                <!-- Response will appear here -->
+            </div>
+        </div>
+    {% else %}
+        <p style="color: red;">Your subscription is not active. Please subscribe to use the models.</p>
+        <h3>Subscribe Now</h3>
+        <p>Click the button below to subscribe to our premium plan.</p>
+        <form action="{{ url_for('main.create_checkout_session') }}" method="POST">
+            <button type="submit" id="checkout-button">Subscribe</button>
+        </form>
+        <p><small>You will be redirected to Stripe to complete your payment.</small></p>
+    {% endif %}
+{% endblock %}
